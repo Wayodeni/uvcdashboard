@@ -1,11 +1,11 @@
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu('Dashboard Menu')
-      .addItem('Добавить аудиторию', 'auditoryCreationPrompt')
-      .addSeparator()
-      .addSubMenu(ui.createMenu('Sub-menu')
-          .addItem('Second item', 'menuItem2'))
-      .addToUi();
+  // ui.createMenu('Dashboard Menu')
+  //     .addItem('Добавить аудиторию', 'auditoryCreationPrompt')
+  //     .addSeparator()
+  //     .addSubMenu(ui.createMenu('Sub-menu')
+  //         .addItem('Second item', 'menuItem2'))
+  //     .addToUi();
 }
 
 function auditoryCreationPrompt() {
