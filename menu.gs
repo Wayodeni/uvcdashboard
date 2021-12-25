@@ -9,7 +9,7 @@ function onOpen() {
 }
 
 function auditoryCreationPrompt() {
-  var ui = SpreadsheetApp.getUi(); // Same variations.
+  var ui = SpreadsheetApp.getUi();
 
   var result = ui.prompt(
       'Добавление аудитории',
