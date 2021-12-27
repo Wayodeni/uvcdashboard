@@ -38,6 +38,7 @@ function init() {
   }
   
   // Заполнение листа таблицы с расписанием всех аудиторий
+  ss.getSheetByName(TIMETABLE_DB_SHEET_NAME).activate();
   for (var auditoryIndex = 0; auditoryIndex < AUDITORY_NUMBERS.length; auditoryIndex = auditoryIndex + 1) {
     var auditory = createAuditoryObject(AUDITORY_NUMBERS[auditoryIndex] + '_raw');
     fillTimetable(auditory, CURSOR_START_ROW, CURSOR_START_COL + auditoryIndex, TIMETABLE_DB_SHEET_NAME);
