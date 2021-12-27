@@ -8,7 +8,7 @@ function init() {
   const TIMETABLE_DB_SHEET_NAME = 'timetable_db';
   const CURSOR_START_ROW = 7;
   const CURSOR_START_COL = 7;
-  const AUDITORY_NUMBERS = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510];
+  const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510];
   const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
   const AUDITORY_TOKENS = [
    'a=97&audit=4',
@@ -39,8 +39,8 @@ function init() {
   
   // Заполнение листа таблицы с расписанием всех аудиторий
   ss.getSheetByName(TIMETABLE_DB_SHEET_NAME).activate();
-  for (var auditoryIndex = 0; auditoryIndex < AUDITORY_NUMBERS.length; auditoryIndex = auditoryIndex + 1) {
-    var auditory = createAuditoryObject(AUDITORY_NUMBERS[auditoryIndex] + '_raw');
+  for (var auditoryIndex = 0; auditoryIndex < AUDITORY_ORDER.length; auditoryIndex = auditoryIndex + 1) {
+    var auditory = createAuditoryObject(AUDITORY_ORDER[auditoryIndex] + '_raw');
     fillTimetable(auditory, CURSOR_START_ROW, CURSOR_START_COL + auditoryIndex, TIMETABLE_DB_SHEET_NAME);
   }
 }
