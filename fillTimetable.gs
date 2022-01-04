@@ -27,11 +27,11 @@ function fillTimetable(auditoryObj, cursorRow, cursorCol, timetableSheetName) {
         cr = cr + 1;
         cursor = timetableSheet.getRange(cr, cc);
         }
-        if (weekType == BOTTOM_WEEK) {
-          cursor.setValue(auditoryObj.auditoryName);
-          cr = cr + 1;
-          cursor = timetableSheet.getRange(cr, cc);
-        }
+        // if (weekType == BOTTOM_WEEK) {
+        //   cursor.setValue(auditoryObj.auditoryName);
+        //   cr = cr + 1;
+        //   cursor = timetableSheet.getRange(cr, cc);
+        // }
     }
   }
 }

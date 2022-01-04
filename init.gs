@@ -5,10 +5,9 @@ function init() {
    ss.insertSheet('empty');
   }
   const TEMPLATE_URL = 'https://docs.google.com/spreadsheets/d/1Kj4zpPWM15DGCmwK1B1KbNVlGegSNmItaMeqwsOT3mk/edit';
-  const TIMETABLE_DB_SHEET_NAME = 'timetable_db';
-  const FRONTEND_SHEET_NAME = 'Расписание';
-  const CURSOR_START_ROW = 7;
-  const CURSOR_START_COL = 7;
+  const TIMETABLE_DB_SHEET_NAME = 'Расписание';
+  const CURSOR_START_ROW = 2;
+  const CURSOR_START_COL = 5;
   const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510];
   const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
   const AUDITORY_TOKENS = [
@@ -44,9 +43,6 @@ function init() {
     var auditory = createAuditoryObject(AUDITORY_ORDER[auditoryIndex] + '_raw');
     fillTimetable(auditory, CURSOR_START_ROW, CURSOR_START_COL + auditoryIndex, TIMETABLE_DB_SHEET_NAME);
   }
-
-  // Создание листа с красивым гуем
-  sheetFromTemplate(FRONTEND_SHEET_NAME, TEMPLATE_URL);
 }
 
 function createAuditoryRawdataSheet(link) {
