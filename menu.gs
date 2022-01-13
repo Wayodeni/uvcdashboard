@@ -5,8 +5,8 @@ function onOpen() {
       .addItem('Удалить таблицы', 'remove')
       .addItem('Обновить таблицы', 'update')
       .addSeparator()
-      .addSubMenu(ui.createMenu('Sub-menu')
-        .addItem('Second item', 'menuItem2'))
+      .addSubMenu(ui.createMenu('Для Разработчиков')
+        .addItem('Перегенерировать расписание из существующих листов', 'resetTimetable'))
       .addToUi();
 }
 
@@ -21,4 +21,8 @@ function remove() {
 function update() {
   deleteAllSheets();
   init();
+}
+
+function resetTimetable() {
+  recreateTimetable();
 }

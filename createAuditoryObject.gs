@@ -11,21 +11,24 @@ function createAuditoryObject(rawDataSheetName) {
   */
   var FIRST_CELL_COL = 1;
   var FIRST_CELL_ROW = 3;
-  var SELECTED_COLS_Q = 3;
+  var SELECTED_COLS_Q = 8;
 
-  var DAY_COL_INDEX = 0;
-  var LESSON_COL_INDEX = 1;
-  var WEEK_TYPE_COL_INDEX = 2;
+  const DAY_COL_INDEX = 0;
+  const LESSON_COL_INDEX = 1;
+  const WEEK_TYPE_COL_INDEX = 2;
+  const LESSON_NAME_COL_INDEX = 3;
+  const TEACHER_NAME_COL_INDEX = 4;
+  const GROUP_NAME_COL_INDEX = 7;
 
   var ss = SpreadsheetApp.getActive();
   var auditoryRawData = ss.getSheetByName(rawDataSheetName);
-  var rowsQ = auditoryRawData.getMaxRows();
+  var rowsQ = auditoryRawData.getLastRow();
   var range = auditoryRawData.getRange(FIRST_CELL_ROW, FIRST_CELL_COL, rowsQ, SELECTED_COLS_Q);
 
   /* 
   values - матрица размером SELECTED_COLS_Q x rowsQ хранящая в себе данные о парах в аудитории
    */
-  var values = range.getValues();
+  var timetable = range.getValues();
   
   auditoryObj = {
     auditoryName: 'none',
@@ -55,55 +58,57 @@ function createAuditoryObject(rawDataSheetName) {
         [0, 0, 0, 0, 0, 0, 0],
       ],
     ]
-  }
-
+  };
   auditoryObj.auditoryName = rawDataSheetName.split('_')[0];
   for (var rowIndex = 0; rowIndex < rowsQ; rowIndex = rowIndex + 1) {
-    var lessonNum = values[rowIndex][LESSON_COL_INDEX].split('-')[0];
+    var lessonNum = timetable[rowIndex][LESSON_COL_INDEX].split('-')[0];
     var lessonIndex = lessonNum - 1;
-    var weekTypeStr = values[rowIndex][WEEK_TYPE_COL_INDEX];
-    var weekdayNameStr = values[rowIndex][DAY_COL_INDEX];
+    var weekTypeStr = timetable[rowIndex][WEEK_TYPE_COL_INDEX];
+    var weekdayNameStr = timetable[rowIndex][DAY_COL_INDEX];
+    var teacherName = timetable[rowIndex][TEACHER_NAME_COL_INDEX];
+    var lessonName = timetable[rowIndex][LESSON_NAME_COL_INDEX];
+    var groupName = timetable[rowIndex][GROUP_NAME_COL_INDEX];
     switch (weekdayNameStr) {
       case 'Понедельник':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[0][0][lessonIndex] = 1;
+          auditoryObj.lessons[0][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[0][1][lessonIndex] = 1;
+          auditoryObj.lessons[0][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
       case 'Вторник':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[1][0][lessonIndex] = 1;
+          auditoryObj.lessons[1][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[1][1][lessonIndex] = 1;
+          auditoryObj.lessons[1][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
       case 'Среда':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[2][0][lessonIndex] = 1;
+          auditoryObj.lessons[2][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[2][1][lessonIndex] = 1;
+          auditoryObj.lessons[2][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
       case 'Четверг':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[3][0][lessonIndex] = 1;
+          auditoryObj.lessons[3][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[3][1][lessonIndex] = 1;
+          auditoryObj.lessons[3][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
       case 'Пятница':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[4][0][lessonIndex] = 1;
+          auditoryObj.lessons[4][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[4][1][lessonIndex] = 1;
+          auditoryObj.lessons[4][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
       case 'Суббота':
         if (weekTypeStr == 'верхняя') {
-          auditoryObj.lessons[5][0][lessonIndex] = 1;
+          auditoryObj.lessons[5][0][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         } else if (weekTypeStr == 'нижняя') {
-          auditoryObj.lessons[5][1][lessonIndex] = 1;
+          auditoryObj.lessons[5][1][lessonIndex] = {name: lessonName, teacher: teacherName, group: groupName};
         }
         break;
     }
