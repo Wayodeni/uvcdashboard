@@ -1,11 +1,28 @@
+// Цвет занятой пары
 const BUSY_LESSON_COLOR = 'red';
+
+// Цвет свободной пары
 const FREE_LESSON_COLOR = 'green';
+
+// URL адрес таблицы-шаблона для заполнения
 const TEMPLATE_URL = 'https://docs.google.com/spreadsheets/d/1Kj4zpPWM15DGCmwK1B1KbNVlGegSNmItaMeqwsOT3mk/edit';
+
+// Неизменяемая часть адреса StudyDep
 const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
+
+// Имя листа для заполнения общего расписания
 const TIMETABLE_DB_SHEET_NAME = 'Расписание';
-const CURSOR_START_ROW = 2;
-const CURSOR_START_COL = 5;
+
+// Начальная позиция, от которой будут заполняться номера аудиторий и краситься клеточки
+const CURSOR_START_ROW = 4;
+const CURSOR_START_COL = 4;
+
+// Порядок расположения аудиторий
+// Порядок расположения чисел ВАЖЕН. Опеределяет то, как аудитории идут друг за другом
 const AUDITORY_ORDER = [3, 8, 4, 5, 15, 30, 32, 42, 56, 106, 108, 125, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510, 411, 603, 605, 606, 607, 608, 609];
+
+// Ссылка на аудиторию (часть, идущая после STUDYDEP_URL, после перехода на страницу с расписанием аудитории)
+// Порядок вставки ссылок НЕ ВАЖЕН
 const AUDITORY_TOKENS = [
   'a=97&audit=4',
   'a=4410&audit=5',
