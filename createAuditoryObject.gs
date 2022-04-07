@@ -18,6 +18,7 @@ function createAuditoryObject(rawDataSheetName) {
   const WEEK_TYPE_COL_INDEX = 2;
   const LESSON_NAME_COL_INDEX = 3;
   const TEACHER_NAME_COL_INDEX = 4;
+  const AUDITORY_NAME_COL_INDEX = 5;
   const GROUP_NAME_COL_INDEX = 7;
 
   var ss = SpreadsheetApp.getActive();
@@ -59,7 +60,7 @@ function createAuditoryObject(rawDataSheetName) {
       ],
     ]
   };
-  auditoryObj.auditoryName = rawDataSheetName.split('_')[0];
+  auditoryObj.auditoryName = timetable[0][AUDITORY_NAME_COL_INDEX];
   for (var rowIndex = 0; rowIndex < rowsQ; rowIndex = rowIndex + 1) {
     var lessonNum = timetable[rowIndex][LESSON_COL_INDEX].split('-')[0];
     var lessonIndex = lessonNum - 1;

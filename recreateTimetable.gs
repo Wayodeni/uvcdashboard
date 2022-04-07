@@ -3,7 +3,7 @@ function recreateTimetable() {
   const TIMETABLE_DB_SHEET_NAME = 'Расписание'
   const CURSOR_START_ROW = 2
   const CURSOR_START_COL = 5
-  const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510];
+  const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510, 8, 30, 32, 125, 411, 609, 608, 607, 606, 605, 603];
 
   var ss = SpreadsheetApp.getActive();
   var timetableSheet = ss.getSheetByName(TIMETABLE_DB_SHEET_NAME);
