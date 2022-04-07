@@ -4,8 +4,6 @@ function fillFrontend(cursorRow, cursorCol, frontendSheetName, timetableSheetNam
   var frontendSheetName = 'Расписание';
   var timetableSheetName = 'timetable_db';
   var auditoriesQ = 19;
-
-
   const TIMETABLE_DATA_START_ROW = 7;
   const TIMETABLE_DATA_START_COL = 7;
   var ss = SpreadsheetApp.getActive();

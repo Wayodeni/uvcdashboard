@@ -3,9 +3,6 @@ function fillTimetable(auditoryObj, cursorRow, cursorCol, timetableSheetName) {
   Функция заполняет расписание аудитории auditoryObj сверху вниз в столбик, 
   начиная с ячейки (cursorRow; cursorCol)
   */
-  const BUSY_LESSON_COLOR = 'red';
-  const FREE_LESSON_COLOR = 'green';
-  const BOTTOM_WEEK = 1;
   var ss = SpreadsheetApp.getActive();
   var timetableSheet = ss.getSheetByName(timetableSheetName);
   var cursor = timetableSheet.getRange(cursorRow, cursorCol);
@@ -22,8 +19,8 @@ function fillTimetable(auditoryObj, cursorRow, cursorCol, timetableSheetName) {
         if (lessonObj) {
           cursor.setBackground(BUSY_LESSON_COLOR);
           var note = 'Преподаватель: ' + lessonObj.teacher + 
-          '\n' + 'Дисциплина: ' + lessonObj.name + 
-          '\n' + 'Группа: ' + lessonObj.group;
+              '\n' + 'Дисциплина: ' + lessonObj.name + 
+              '\n' + 'Группа: ' + lessonObj.group;
           cursor.setNote(note);
         } else {
           cursor.setBackground(FREE_LESSON_COLOR);
