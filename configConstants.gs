@@ -4,15 +4,6 @@ const BUSY_LESSON_COLOR = 'red';
 // Цвет свободной пары
 const FREE_LESSON_COLOR = 'green';
 
-// URL адрес таблицы-шаблона для заполнения
-const TEMPLATE_URL = 'https://docs.google.com/spreadsheets/d/1Kj4zpPWM15DGCmwK1B1KbNVlGegSNmItaMeqwsOT3mk/edit';
-
-// Неизменяемая часть адреса StudyDep
-const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
-
-// Имя листа для заполнения общего расписания
-const TIMETABLE_DB_SHEET_NAME = 'Расписание';
-
 // Начальная позиция, от которой будут заполняться номера аудиторий и краситься клеточки
 const CURSOR_START_ROW = 4;
 const CURSOR_START_COL = 4;
@@ -55,3 +46,21 @@ const AUDITORY_TOKENS = [
   'a=52&audit=603',
   'a=77&audit=411',
 ]
+
+/*
+ВНИМАНИЕ! ОПАСНАЯ ЗОНА!
+Изменение следующих параметров может привести к неработоспособности таблицы:
+*/
+
+// URL адрес таблицы-шаблона, которая копируется каждый раз при обновлении
+const TEMPLATE_URL = 'https://docs.google.com/spreadsheets/d/1Kj4zpPWM15DGCmwK1B1KbNVlGegSNmItaMeqwsOT3mk/edit';
+
+// Неизменяемая часть адреса StudyDep
+const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
+
+// Имя листа для заполнения общего расписания
+const TIMETABLE_DB_SHEET_NAME = 'Расписание';
+
+/*
+ВНИМАНИЕ! ОПАСНАЯ ЗОНА!
+*/
