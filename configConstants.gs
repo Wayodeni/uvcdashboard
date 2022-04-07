@@ -5,7 +5,7 @@ const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
 const TIMETABLE_DB_SHEET_NAME = 'Расписание';
 const CURSOR_START_ROW = 2;
 const CURSOR_START_COL = 5;
-const AUDITORY_ORDER = [3, 8, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510, 30, 32, 125, 411, 609, 608, 607, 606, 605, 603];
+const AUDITORY_ORDER = [3, 8, 4, 5, 15, 30, 32, 42, 56, 106, 108, 125, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510, 411, 603, 605, 606, 607, 608, 609];
 const AUDITORY_TOKENS = [
   'a=97&audit=4',
   'a=4410&audit=5',
