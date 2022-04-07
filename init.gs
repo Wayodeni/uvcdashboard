@@ -1,3 +1,4 @@
+//TODO: Сделать новую структуру данных для хранения url аудиторий - в названиях аудиторий должны быть буквы
 function init() {
   var ss = SpreadsheetApp.getActive();
   var emptySheet = ss.getSheetByName('empty');
@@ -8,7 +9,7 @@ function init() {
   const TIMETABLE_DB_SHEET_NAME = 'Расписание';
   const CURSOR_START_ROW = 2;
   const CURSOR_START_COL = 5;
-  const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510];
+  const AUDITORY_ORDER = [3, 4, 5, 15, 42, 56, 106, 108, 165, 166, 170, 101, 302, 303, 304, 507, 508, 509, 510, 8, 30, 32, 125, 411, 609, 608, 607, 606, 605, 603];
   const STUDYDEP_URL = 'http://studydep.miigaik.ru/semestr/timetableau.php?';
   const AUDITORY_TOKENS = [
    'a=97&audit=4',
@@ -30,6 +31,17 @@ function init() {
    'a=8&audit=509',
    'a=5&audit=510',
    'a=4451&audit=3',
+   'a=27&audit=30',
+   'a=50&audit=32',
+   'a=51&audit=125',
+   'a=4444&audit=8',
+   'a=57&audit=609',
+   'a=56&audit=608',
+   'a=55&audit=607',
+   'a=4454&audit=606',
+   'a=53&audit=605',
+   'a=52&audit=603',
+   'a=77&audit=411',
   ]
   sheetFromTemplate(TIMETABLE_DB_SHEET_NAME, TEMPLATE_URL);
   // Создать лист в таблице с расписанием, спарсенным с сайта
