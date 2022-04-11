@@ -1,4 +1,10 @@
 function onOpen() {
+  var ss = SpreadsheetApp.getActive();
+  var timetableSheet = ss.getSheetByName(TIMETABLE_DB_SHEET_NAME);
+  if (timetableSheet) {
+   timetableSheet.activate();
+  }
+
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('Dashboard Menu')
       .addItem('Создать таблицы', 'create')
